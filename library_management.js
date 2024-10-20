@@ -98,3 +98,22 @@ class Book {
           }
         }
       }
+
+      //Task 5- Handle Books Borrowing and Returning
+      class Section {
+        constructor(name) {
+          this.name = name;  // Name of the genre/section
+          this.books = [];  
+        }
+      
+        // Adds a book to the section
+        addBook(book) {
+          this.books.push(book);  // Pushes the book into the books array
+        }
+      
+        // This calculates and returns the total number of books available for borrowing
+        calculateTotalBooksAvailable() {
+          const availableBooks = this.books.filter(book => book.isAvailable);  // Filter the available books
+          return availableBooks.length;  // Return the count of available books
+        }
+      }
