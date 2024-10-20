@@ -23,11 +23,12 @@ class Book {
       }
     }
 
+    
     //Task 2- Creating a section Class
     class Section {
         constructor(name) {
           this.name = name;
-          this.books = []; // Array to store books in the section
+          this.books = []; 
         }
       
         // Tells use when a new book has beed added
@@ -53,3 +54,29 @@ class Book {
           });
         }
       }
+
+    //Task 3- Creating a Patron Class
+      class Patron {
+        constructor(name) {
+          this.name = name;
+          this.borrowedBooks = []; 
+        }
+      
+        // tells us we can borrow a book if we have it
+        borrowBook(book) {
+          if (book.isAvailable) {
+            book.isAvailable = false; 
+            this.borrowedBooks.push(book);
+            console.log(`Success! ${this.name} has checked out "${book.title}". Time to dive into a new adventure and get them AR points, i know you guys remember those`);
+          } else {
+            console.log(`Sorry, ${this.name}. "${book.title}" is currently unavailable. Perhaps try another title?`);
+          }
+        }
+      
+        // Tells us what happens when returning a borrowed book
+        returnBook(book) {
+          book.isAvailable = true; 
+        this.borrowedBooks = this.borrowedBooks.filter(storybook => storybook.ISBN !== book.ISBN);
+          console.log(`"${book.title}" has been returned by ${this.name}. Hope you enjoyed it!`);
+        }
+      } 
