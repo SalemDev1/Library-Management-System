@@ -80,3 +80,21 @@ class Book {
           console.log(`"${book.title}" has been returned by ${this.name}. Hope you enjoyed it!`);
         }
       } 
+
+      //Task 4-  creating a vip patron class that inherits from patron 
+      class VIPPatron extends Patron {
+        constructor(name, priority) {
+          super(name);  // gets the name from the Patron class
+          this.priority = priority;  // VIPs get a priority flag (Big Brains coming through)
+        }
+      
+        borrowBook(book) {
+          if (this.priority) {
+            console.log(`${this.name} (VIP) gets priority to borrow "${book.title}" before anyone else!`);
+            super.borrowBook(book);  
+          } else {
+            console.log(`VIP ${this.name} is borrowing like a regular patron today.`);
+            super.borrowBook(book);  
+          }
+        }
+      }
