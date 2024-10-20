@@ -108,7 +108,7 @@ class Book {
       
         // Adds a book to the section
         addBook(book) {
-          this.books.push(book);  // Pushes the book into the books array
+          this.books.push(book);  
         }
       
         // This calculates and returns the total number of books available for borrowing
